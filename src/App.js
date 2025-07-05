@@ -1,18 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-       
-      </header>
-    </div>
+import React from "react";
+import PowerButton from "./components/PowerButton";
+import BotStatus from "./components/BotStatus";
+function App(){
+  return(
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">MARVIN.v2 Control Panel</h1>
+      <PowerButton />
+      <BotStatus />
+      </div>
+      
   );
 }
-
 export default App;
