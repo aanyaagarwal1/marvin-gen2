@@ -8,6 +8,7 @@ function App(){
       <h1 className="text-2xl font-bold">MARVIN.v2 Control Panel</h1>
       <PowerButton />
       <BotStatus />
+      <ControlPanel />
       </div>
       
   );
