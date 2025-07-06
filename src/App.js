@@ -1,6 +1,7 @@
 import React from "react";
 import PowerButton from "./components/PowerButton";
-import BotStatus from "./components/BotStatus";
+import BotStatus from "./components/BotStatus.jsx";
+import ControlPanel from "./components/ControlPanel.jsx";
 function App(){
   return(
     <div className="p-4">
