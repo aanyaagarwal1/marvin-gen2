@@ -18,23 +18,23 @@ export default function ManualControls() {
 
   return (
     //outer box
-    <Box
-    sx={{
-      width: 420,
-      height: 680,
-      bgcolor: '#fff',
-      borderRadius: 6,
-      border: '1px solid #ccc',
-      boxShadow: 3,
-      p: 3,
-      textAlign: 'center',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
+  //   <Box
+  //   sx={{
+  //     width: 420,
+  //     height: 680,
+  //     bgcolor: '#fff',
+  //     borderRadius: 6,
+  //     border: '1px solid #ccc',
+  //     boxShadow: 3,
+  //     p: 3,
+  //     textAlign: 'center',
+  //     display: 'flex',
+  //     flexDirection: 'column',
+  //     justifyContent: 'center',
+  //     alignItems: 'center',
       
-    }}
-  >
+  //   }}
+  // >
 <Box
   sx={{
     width: 350,
@@ -66,6 +66,6 @@ export default function ManualControls() {
     <IconButton onClick={() => sendCommand("left")} sx={{ position: 'absolute', left: 20 }}><ArrowLeftwardIcon style={{ width: 31, height: 31 }}/></IconButton>
     <IconButton onClick={() => sendCommand("right")} sx={{ position: 'absolute', right: 20 }}><ArrowRightwardIcon style={{ width: 31, height: 31 }}/></IconButton>
   </Box>
-</Box>
+// </Box>
   )
 }
