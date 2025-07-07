@@ -3,8 +3,11 @@ import { useState } from "react";
 import PowerButton from "./components/PowerButton";
 import BotStatus from "./components/BotStatus.jsx";
 import ControlPanel from "./components/ControlPanel.jsx";
-import VaccumSlider from "./components/VaccumSlider.jsx";
-import MotorSlider from "./components/MotorSlider.jsx";
+import Stats from "./components/Stats.jsx";
+import PowerOff from "./components/PowerOff.jsx";
+// import VaccumSlider from "./components/VaccumSlider.jsx";
+
+// import MotorSlider from "./components/MotorSlider.jsx";
 
 import { ThemeProvider, createTheme, CssBaseline, Box, IconButton } from "@mui/material";
 
@@ -44,8 +47,10 @@ return (
           <PowerButton />
           <BotStatus />
           <ControlPanel />
-          <VaccumSlider />
-          <MotorSlider />      
+          {/* <MotorSlider />  
+          <VaccumSlider />     */}
+          <Stats />
+          <PowerOff />
           </Box>
       </ThemeProvider>
     );
