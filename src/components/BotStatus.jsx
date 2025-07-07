@@ -33,7 +33,7 @@ export default function BotStatus() {
     };
 
   return (
-    <Box sx={{ minWidth: 205 }}>
+    <Box sx={{ width: 280 }}>
       <Card variant="outlined">
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
