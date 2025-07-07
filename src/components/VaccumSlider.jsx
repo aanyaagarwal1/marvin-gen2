@@ -3,8 +3,8 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 
-const MAX = 100;
-const MIN = 0;
+const MAX = 2000;
+const MIN = 1000;
 const marks = [
   {
     value: MIN,
