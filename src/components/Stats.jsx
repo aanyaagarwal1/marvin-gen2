@@ -34,7 +34,9 @@ export default function SpeedBatteryDisplay() {
           mb: 4,
         }}
       >
-        <Metric value={motorSpeed} label="Motor Speed" />
+        <Metric value={motorSpeed} 
+        label="Motor 
+        Speed" />
         <Metric value={vacuumSpeed} label="Vacuum Speed" />
         <Metric value={battery} label="Battery" />
       </Card>
