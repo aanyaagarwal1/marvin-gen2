@@ -5,14 +5,11 @@ import BotStatus from "./components/BotStatus.jsx";
 import ControlPanel from "./components/ControlPanel.jsx";
 import Stats from "./components/Stats.jsx";
 import PowerOff from "./components/PowerOff.jsx";
-// import VaccumSlider from "./components/VaccumSlider.jsx";
-
-// import MotorSlider from "./components/MotorSlider.jsx";
-
 import { ThemeProvider, createTheme, CssBaseline, Box, IconButton } from "@mui/material";
+import { ReactComponent as SunIcon} from "./assets/dark mode icon.svg";
+import { ReactComponent as MoonIcon} from "./assets/light mode icon.svg";
 
-import SunIcon from "./icons/sun.jsx";
-import MoonIcon from "./icons/moon.jsx";
+
 function App(){ const [darkMode, setDarkMode] = useState(false);
 
   const theme = createTheme({
@@ -35,11 +32,7 @@ return (
           <Box display="flex" alignItems="center" justifyContent="space-between">
             <h1 className="text-2xl font-bold">MARVIN.v2 Control Panel</h1>
             <IconButton onClick={() => setDarkMode(!darkMode)} color="inherit">
-              <img
-                src={darkMode ? SunIcon : MoonIcon}
-                alt="Toggle Theme"
-                style={{ width: 24, height: 24 }}
-              />
+            {darkMode ? <SunIcon style={{ width: 24, height: 24 }} /> : <MoonIcon style={{ width: 24, height: 24 }} />}
             </IconButton>
           </Box>
   
