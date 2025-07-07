@@ -5,8 +5,8 @@ import { db } from '../firebase';
 import { ref, set } from 'firebase/database';
 
 export default function SpeedBatteryDisplay() {
-  const [motorSpeed, setMotorSpeed] = useState(100);
-  const [vacuumSpeed, setVacuumSpeed] = useState(1000);
+  const [motorSpeed, setMotorSpeed] = useState(0);
+  const [vacuumSpeed, setVacuumSpeed] = useState(0);
   const battery = 100; // Placeholder for dynamic battery value
 
   const handleMotorSpeedChange = (e, val) => {
@@ -48,14 +48,14 @@ export default function SpeedBatteryDisplay() {
           value={motorSpeed}
           onChange={handleMotorSpeedChange}
           min={0}
-          max={255}
+          max={100}
         />
         <Typography gutterBottom sx={{ mt: 2 }}>Vacuum Speed</Typography>
         <Slider
           value={vacuumSpeed}
           onChange={handleVacuumSpeedChange}
-          min={1000}
-          max={2000}
+          min={0}
+          max={100}
         />
       </Box>
     </Box>

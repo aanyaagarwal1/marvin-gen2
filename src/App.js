@@ -2,13 +2,12 @@ import React from "react";
 import { useState } from "react";
 import PowerButton from "./components/PowerButton";
 import BotStatus from "./components/BotStatus.jsx";
-import ControlPanel from "./components/ControlPanel.jsx";
 import Stats from "./components/Stats.jsx";
 import PowerOff from "./components/PowerOff.jsx";
 import { ThemeProvider, createTheme, CssBaseline, Box, IconButton } from "@mui/material";
 import { ReactComponent as SunIcon} from "./assets/dark mode icon.svg";
 import { ReactComponent as MoonIcon} from "./assets/light mode icon.svg";
-
+import Dpad from "./components/ManualControls.jsx";
 
 function App(){ const [darkMode, setDarkMode] = useState(false);
 
@@ -20,6 +19,7 @@ function App(){ const [darkMode, setDarkMode] = useState(false);
 return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <div>
         <Box
           sx={{
             p: 4,
@@ -39,12 +39,14 @@ return (
           {/* App Components */}
           <PowerButton />
           <BotStatus />
-          <ControlPanel />
+          <Dpad />
           {/* <MotorSlider />  
           <VaccumSlider />     */}
           <Stats />
           <PowerOff />
           </Box>
+         
+          </div>
       </ThemeProvider>
     );
   }
