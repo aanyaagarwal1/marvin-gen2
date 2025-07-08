@@ -8,6 +8,7 @@ import {ReactComponent as ArrowUpwardIcon} from "../assets/front.svg";
 import {ReactComponent as ArrowDownwardIcon} from "../assets/back.svg";
 import {ReactComponent as ArrowRightwardIcon} from "../assets/right.svg";
 import {ReactComponent as ArrowLeftwardIcon} from "../assets/left.svg";
+// import {ReactComponent as Branding} from "../assets/mars.svg";
 // import Typography from '@mui/material/Typography';
 export default function ManualControls() {
   const sendCommand = (command) => {
@@ -78,16 +79,18 @@ export default function ManualControls() {
       // justifyContent: 'center',
       // alignItems: 'center',
 
-      width: 170,
-      height: 170,
+      width: 167,
+      height: 167,
       bgcolor: '#fff',
       borderRadius: '50%',
       position: 'absolute',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      // <Branding style={{ width: 100, height: 100, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'
     }}
     >
+      {/* <Branding style={{ width: 100, height: 100 }} /> */}
     </Box>
     <IconButton onClick={() => sendCommand("forward")} sx={{ position: 'absolute', top: 20 }}><ArrowUpwardIcon style={{ width: 31, height: 31 }}/></IconButton>
     <IconButton onClick={() => sendCommand("backward")} sx={{ position: 'absolute', bottom: 20 }}><ArrowDownwardIcon style={{ width: 31, height: 31 }}/></IconButton>

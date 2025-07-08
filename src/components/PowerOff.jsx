@@ -153,7 +153,7 @@ function StopAtTimeCard() {
         .catch((error) => console.error("Error sending command:", error));
     };
   const [stopTime, setStopTime] = useState('');
-  const [robotRunning, setRobotRunning] = useState(true);
+  const [robotRunning, setRobotRunning] = useState(false);
 
   useEffect(() => {
     if (!stopTime || !robotRunning) return;
@@ -208,7 +208,7 @@ function StopAtTimeCard() {
           variant="contained"
           onClick={() => {
             setRobotRunning(true)
-            sendCommand("on");
+            sendCommand("auto");
           }}
           disabled={robotRunning}
         >
