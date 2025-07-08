@@ -9,6 +9,7 @@ import { ReactComponent as SunIcon} from "./assets/dark mode icon.svg";
 import { ReactComponent as MoonIcon} from "./assets/light mode icon.svg";
 // import Dpad from "./components/ManualControls.jsx";
 import Panel from"./components/Panel.jsx";
+
 function App(){ const [darkMode, setDarkMode] = useState(false);
 
   const theme = createTheme({
@@ -40,7 +41,10 @@ return (
           <PowerButton />
           {/* <BotStatus />
           <Dpad /> */}
-          <Panel />
+          {/* <Panel /> */}
+         
+      <Panel />
+   
           {/* <MotorSlider />  
           <VaccumSlider />     */}
           <Stats />

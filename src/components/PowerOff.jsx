@@ -143,9 +143,15 @@ import {
   Button,
   TextField,
 } from '@mui/material';
-
+import { db } from '../firebase'; // Adjust the import based on your project structure
+import { ref, set } from 'firebase/database';
 // First Card: Stop at specific time
 function StopAtTimeCard() {
+  const sendCommand = (command) => {
+      set(ref(db, "/marvinBot/command"), command)
+        .then(() => console.log("Command sent:", command))
+        .catch((error) => console.error("Error sending command:", error));
+    };
   const [stopTime, setStopTime] = useState('');
   const [robotRunning, setRobotRunning] = useState(true);
 
@@ -170,6 +176,7 @@ function StopAtTimeCard() {
       const timer = setTimeout(() => {
         setRobotRunning(false);
         alert('Robot stopped automatically at set time!');
+        sendCommand("off");
       }, timeUntilStop);
 
       return () => clearTimeout(timer);
@@ -199,7 +206,10 @@ function StopAtTimeCard() {
         <Button
           size="small"
           variant="contained"
-          onClick={() => setRobotRunning(true)}
+          onClick={() => {
+            setRobotRunning(true)
+            sendCommand("on");
+          }}
           disabled={robotRunning}
         >
           Start Robot Again
@@ -211,6 +221,11 @@ function StopAtTimeCard() {
 
 // Second Card: Start and stop interval
 function TimedCleaningCard() {
+  const sendCommand = (command) => {
+    set(ref(db, "/marvinBot/command"), command)
+      .then(() => console.log("Command sent:", command))
+      .catch((error) => console.error("Error sending command:", error));
+  };
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
   const [robotRunning, setRobotRunning] = useState(false);
@@ -259,6 +274,7 @@ function TimedCleaningCard() {
       const stopTimer = setTimeout(() => {
         setRobotRunning(false);
         alert('Robot finished cleaning!');
+        sendCommand("off");
       }, timeUntilEnd);
 
       return () => clearTimeout(stopTimer);

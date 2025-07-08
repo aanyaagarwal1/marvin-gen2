@@ -37,6 +37,21 @@ export default function ManualControls() {
   // >
 <Box
   sx={{
+    // // width: 350,
+    // width: '100%',
+    // maxWidth: 350,
+    // aspectRatio: '1 / 1', 
+    // // width:{ xs: 250, sm: 300, md: 350 },
+    // height: { xs: 250, sm: 300, md: 350 },
+    // // height: 350,
+    // bgcolor: '#000',
+    // borderRadius: '50%',
+    // border: '2px solid #ccc',
+    // position: 'relative',
+    // display: 'flex',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+
     width: 350,
     height: 350,
     bgcolor: '#000',
@@ -50,6 +65,19 @@ export default function ManualControls() {
   >
   <Box
     sx={{
+      // width: 170,
+      // height: 170,
+
+      // width: '50%',
+      // height: '50%',
+      // bgcolor: '#fff',
+      // borderRadius: '50%',
+      // position: 'absolute',
+
+      // display: 'flex',
+      // justifyContent: 'center',
+      // alignItems: 'center',
+
       width: 170,
       height: 170,
       bgcolor: '#fff',
