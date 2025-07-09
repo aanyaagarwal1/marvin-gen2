@@ -3,11 +3,15 @@ import { ref, set } from "firebase/database";
 import { db } from "../firebase.js";
 import './ManualControls.css';
 import Box from '@mui/material/Box';
+// import Grid from '@mui/material/Grid';
+// import IconButton from "@mui/material";
 import { IconButton } from "@mui/material";
 import {ReactComponent as ArrowUpwardIcon} from "../assets/front.svg";
 import {ReactComponent as ArrowDownwardIcon} from "../assets/back.svg";
 import {ReactComponent as ArrowRightwardIcon} from "../assets/right.svg";
 import {ReactComponent as ArrowLeftwardIcon} from "../assets/left.svg";
+import {Button} from "@mui/material";
+// import Typography from "@mui/material";
 // import {ReactComponent as Branding} from "../assets/mars.svg";
 // import Typography from '@mui/material/Typography';
 export default function ManualControls() {
@@ -52,7 +56,6 @@ export default function ManualControls() {
     // display: 'flex',
     // justifyContent: 'center',
     // alignItems: 'center',
-
     width: 350,
     height: 350,
     bgcolor: '#000',
@@ -64,7 +67,10 @@ export default function ManualControls() {
     alignItems: 'center',
   }}
   >
-  <Box
+  <Button
+    onClick={() => {
+      sendCommand("stop")
+    }}
     sx={{
       // width: 170,
       // height: 170,
@@ -90,8 +96,10 @@ export default function ManualControls() {
       // <Branding style={{ width: 100, height: 100, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'
     }}
     >
-      {/* <Branding style={{ width: 100, height: 100 }} /> */}
-    </Box>
+      <span style={{ color: '#000', fontSize: '1.2rem', fontWeight: 'bold' }}>
+    STOP
+  </span>
+    </Button>
     <IconButton onClick={() => { 
       sendCommand("forward")
       // setTimeout(() => { sendCommand("stop")
@@ -108,11 +116,17 @@ export default function ManualControls() {
       setTimeout(() => {
         sendCommand("stop")
       }, 10);
+      setTimeout(() => {
+        sendCommand("forward")
+      }, 2);
       }} sx={{ position: 'absolute', left: 20 }}><ArrowLeftwardIcon style={{ width: 31, height: 31 }}/></IconButton>
     <IconButton onClick={() => { sendCommand("right")
       setTimeout(() => {
         sendCommand("stop")
       }, 10);
+      setTimeout(() => {
+        
+      },1);
     }} sx={{ position: 'absolute', right: 20 }}><ArrowRightwardIcon style={{ width: 31, height: 31 }}/></IconButton>
   </Box>
 // </Box>
