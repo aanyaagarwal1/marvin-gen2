@@ -13,14 +13,14 @@ export default function SpeedBatteryDisplay() {
     console.log('Motor Speed :' , val)
     setMotorSpeed(val);
     set(ref(db, '/marvinBot/motorSpeed'), val);
-    sendCommand(val);
+    // sendCommand(val);
   };
 
   const handleVacuumSpeedChange = (e, val) => {
     console.log('Vaccum Speed :' , val)
     setVacuumSpeed(val);
-    set(ref(db, '/marvinBot/vaccumspeed'), val);
-    sendCommand(val);
+    set(ref(db, '/marvinBot/vaccumSpeed'), val);
+    // sendCommand(val);
   };
 
   return (
