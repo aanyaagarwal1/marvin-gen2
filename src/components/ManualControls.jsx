@@ -96,24 +96,24 @@ export default function ManualControls() {
       sendCommand("forward")
       setTimeout(() => { sendCommand("stop")
     
-      },500);
+      },2000);
     }} sx={{ position: 'absolute', top: 20 }}><ArrowUpwardIcon style={{ width: 31, height: 31 }}/></IconButton>
     <IconButton onClick={() => {
       sendCommand("backward")
       setTimeout(() => {
         sendCommand("stop")
-      }, 500);
+      }, 2000);
       }} sx={{ position: 'absolute', bottom: 20 }}><ArrowDownwardIcon style={{ width: 31, height: 31 }}/></IconButton>
     <IconButton onClick={() => {
       sendCommand("left")
       setTimeout(() => {
         sendCommand("stop")
-      }, 50);
+      }, 10);
       }} sx={{ position: 'absolute', left: 20 }}><ArrowLeftwardIcon style={{ width: 31, height: 31 }}/></IconButton>
     <IconButton onClick={() => { sendCommand("right")
       setTimeout(() => {
         sendCommand("stop")
-      }, 50);
+      }, 10);
     }} sx={{ position: 'absolute', right: 20 }}><ArrowRightwardIcon style={{ width: 31, height: 31 }}/></IconButton>
   </Box>
 // </Box>
