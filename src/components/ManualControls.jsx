@@ -92,10 +92,29 @@ export default function ManualControls() {
     >
       {/* <Branding style={{ width: 100, height: 100 }} /> */}
     </Box>
-    <IconButton onClick={() => sendCommand("forward")} sx={{ position: 'absolute', top: 20 }}><ArrowUpwardIcon style={{ width: 31, height: 31 }}/></IconButton>
-    <IconButton onClick={() => sendCommand("backward")} sx={{ position: 'absolute', bottom: 20 }}><ArrowDownwardIcon style={{ width: 31, height: 31 }}/></IconButton>
-    <IconButton onClick={() => sendCommand("left")} sx={{ position: 'absolute', left: 20 }}><ArrowLeftwardIcon style={{ width: 31, height: 31 }}/></IconButton>
-    <IconButton onClick={() => sendCommand("right")} sx={{ position: 'absolute', right: 20 }}><ArrowRightwardIcon style={{ width: 31, height: 31 }}/></IconButton>
+    <IconButton onClick={() => { 
+      sendCommand("forward")
+      setTimeout(() => { sendCommand("stop")
+    
+      },50);
+    }} sx={{ position: 'absolute', top: 20 }}><ArrowUpwardIcon style={{ width: 31, height: 31 }}/></IconButton>
+    <IconButton onClick={() => {
+      sendCommand("backward")
+      setTimeout(() => {
+        sendCommand("stop")
+      }, 50);
+      }} sx={{ position: 'absolute', bottom: 20 }}><ArrowDownwardIcon style={{ width: 31, height: 31 }}/></IconButton>
+    <IconButton onClick={() => {
+      sendCommand("left")
+      setTimeout(() => {
+        sendCommand("stop")
+      }, 50);
+      }} sx={{ position: 'absolute', left: 20 }}><ArrowLeftwardIcon style={{ width: 31, height: 31 }}/></IconButton>
+    <IconButton onClick={() => { sendCommand("right")
+      setTimeout(() => {
+        sendCommand("stop")
+      }, 50);
+    }} sx={{ position: 'absolute', right: 20 }}><ArrowRightwardIcon style={{ width: 31, height: 31 }}/></IconButton>
   </Box>
 // </Box>
   )
