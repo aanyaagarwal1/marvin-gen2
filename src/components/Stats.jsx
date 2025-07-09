@@ -9,24 +9,24 @@ export default function SpeedBatteryDisplay() {
   const [vacuumSpeed, setVacuumSpeed] = useState(0);
   const battery = 100; // Placeholder for dynamic battery value
 
-   const sendCommand = (command) => {
-      set(ref(db, "/marvinBot/command"), command)
-        .then(() => console.log("Command sent:", command))
-        .catch((error) => console.error("Error sending command:", error));
-    };
+  //  const sendCommand = (command) => {
+  //     set(ref(db, "/marvinBot/command"), command)
+  //       .then(() => console.log("Command sent:", command))
+  //       .catch((error) => console.error("Error sending command:", error));
+  //   };
 
   const handleMotorSpeedChange = (e, val) => {
     console.log('Motor Speed :' , val)
     setMotorSpeed(val);
     set(ref(db, '/marvinBot/motorSpeed'), val);
-    sendCommand(val);
+    // sendCommand(val);
   };
 
   const handleVacuumSpeedChange = (e, val) => {
     console.log('Vaccum Speed :' , val)
     setVacuumSpeed(val);
     set(ref(db, '/marvinBot/vaccumSpeed'), val);
-    sendCommand(val);
+    // sendCommand(val);
   };
 
   return (
