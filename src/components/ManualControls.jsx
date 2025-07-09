@@ -96,7 +96,7 @@ export default function ManualControls() {
       // <Branding style={{ width: 100, height: 100, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'
     }}
     >
-      <span style={{ color: '#000', fontSize: '1.2rem', fontWeight: 'bold' }}>
+      <span style={{ color: '#000', fontSize: '1.6rem', fontWeight: 'bold' }}>
     STOP
   </span>
     </Button>
