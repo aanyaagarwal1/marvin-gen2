@@ -11,6 +11,8 @@ import {ReactComponent as ArrowDownwardIcon} from "../assets/back.svg";
 import {ReactComponent as ArrowRightwardIcon} from "../assets/right.svg";
 import {ReactComponent as ArrowLeftwardIcon} from "../assets/left.svg";
 import {Button} from "@mui/material";
+import { useState } from "react";
+import { useEffect } from "react";
 // import Typography from "@mui/material";
 // import {ReactComponent as Branding} from "../assets/mars.svg";
 // import Typography from '@mui/material/Typography';
@@ -20,6 +22,15 @@ export default function ManualControls() {
       .then(() => console.log("Command sent:", command))
       .catch((error) => console.error("Error sending command:", error));
   };
+
+  const [mode, setMode] = useState('Auto');
+
+useEffect(() => {
+  const savedMode = localStorage.getItem('mode');
+  if (savedMode === 'Auto' || savedMode === 'Manual') {
+    setMode(savedMode);
+  }
+}, []);
 
   return (
     //outer box
@@ -106,10 +117,12 @@ export default function ManualControls() {
       // },5000);
     }} sx={{ position: 'absolute', top: 20 }}><ArrowUpwardIcon style={{ width: 31, height: 31 }}/></IconButton>
     <IconButton onClick={() => {
+      if(mode === 'Manual') {
       sendCommand("backward")
       // setTimeout(() => {
       //   sendCommand("stop")
       // }, 5000);
+    }
       }} sx={{ position: 'absolute', bottom: 20 }}><ArrowDownwardIcon style={{ width: 31, height: 31 }}/></IconButton>
     <IconButton onClick={() => {
       sendCommand("left")
@@ -131,4 +144,93 @@ export default function ManualControls() {
   </Box>
 // </Box>
   )
+}
+
+
+
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { ref, set } from "firebase/database";
+import { db } from "../firebase.js"; 
+import { useEffect } from 'react';
+export default function BotStatus() {
+  const [mode, setMode] = useState('Auto'); // keep short label internally
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem('mode');
+    if (savedMode === 'auto' || savedMode === 'manual') {
+      setMode(savedMode);
+    }
+  }, []);
+
+  const handleModeChange = (newMode) => {
+    setMode(newMode);
+    localStorage.setItem('mode',newMode); // Store mode in localStorage
+  };
+
+  // Convert internal label to full display name
+  const getFullModeName = (savedMode) => {
+    switch (savedMode) {
+      case 'auto':
+        return 'Automatic';
+      case 'manual':
+        return 'Manual';
+      default:
+        return savedMode;
+    }
+  };
+  const sendCommand = (command) => {
+      set(ref(db, "/marvinBot/command"), command)
+        .then(() => console.log("Command sent:", command))
+        .catch((error) => console.error("Error sending command:", error));
+    };
+
+  return (
+    <Box sx={{ width: 280 }}>
+      <Card variant="outlined">
+        <CardContent>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Bot Status
+          </Typography>
+          <Typography variant="h5" component="div">
+            Mode: {getFullModeName(mode)}
+          </Typography>
+          <Typography sx={{ mb: 1.5 }} color="text.secondary">
+            Current cleaning mode of your bot.
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button 
+            size="small" 
+            variant={mode === 'Auto' ? 'contained' : 'outlined'}
+            onClick={() =>
+               {handleModeChange('Auto')
+                sendCommand("auto")
+               }
+              }
+          >
+            Auto
+          </Button>
+          <Button 
+            size="small" 
+            variant={mode === 'Manual' ? 'contained' : 'outlined'}
+            onClick={() => 
+            { handleModeChange('Manual')
+              sendCommand("manual")
+              localStorage.setItem("mode", "manual") // Store mode in localStorage
+              console.log("Mode changed to Manual");
+            }
+          }
+          >
+            Manual
+          </Button>
+        </CardActions>
+      </Card>
+    </Box>
+  );
 }

@@ -7,23 +7,31 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ref, set } from "firebase/database";
 import { db } from "../firebase.js"; 
-
+import { useEffect } from 'react';
 export default function BotStatus() {
   const [mode, setMode] = useState('Auto'); // keep short label internally
 
+  useEffect(() => {
+    const savedMode = localStorage.getItem('mode');
+    if (savedMode === 'auto' || savedMode === 'manual') {
+      setMode(savedMode);
+    }
+  }, []);
+
   const handleModeChange = (newMode) => {
     setMode(newMode);
+    localStorage.setItem('mode',newMode); // Store mode in localStorage
   };
 
   // Convert internal label to full display name
-  const getFullModeName = (mode) => {
-    switch (mode) {
-      case 'Auto':
+  const getFullModeName = (savedMode) => {
+    switch (savedMode) {
+      case 'auto':
         return 'Automatic';
-      case 'Manual':
+      case 'manual':
         return 'Manual';
       default:
-        return mode;
+        return savedMode;
     }
   };
   const sendCommand = (command) => {
@@ -64,6 +72,8 @@ export default function BotStatus() {
             onClick={() => 
             { handleModeChange('Manual')
               sendCommand("manual")
+              localStorage.setItem("mode", "manual") // Store mode in localStorage
+              console.log("Mode changed to Manual");
             }
           }
           >
