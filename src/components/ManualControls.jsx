@@ -42,7 +42,7 @@ export default function ManualControls() {
     >
       <Button
         onClick={() => {
-          if(mode === 'manual')
+          // if(mode === 'manual')
           sendCommand("stop")}}
         sx={{
           width: 167,
@@ -61,14 +61,15 @@ export default function ManualControls() {
       </Button>
 
       <IconButton onClick={() => {
-      if(mode === 'manual')
+      // if(mode === 'manual')
         {sendCommand("forward")}}} sx={{ position: 'absolute', top: 20 }}>
         <ArrowUpwardIcon style={{ width: 31, height: 31 }}/>
       </IconButton>
 
       <IconButton
         onClick={() => {
-          if(mode === 'manual'){ sendCommand("backward");}
+          // if(mode === 'manual')
+            { sendCommand("backward");}
         }}
         sx={{ position: 'absolute', bottom: 20 }}
       >
@@ -77,7 +78,7 @@ export default function ManualControls() {
 
       <IconButton
         onClick={() => {
-          if(mode === 'manual')
+          // if(mode === 'manual')
           {
           sendCommand("stop");
           sendCommand("left");
@@ -91,7 +92,7 @@ export default function ManualControls() {
 
       <IconButton
         onClick={() => {
-          if(mode === 'manual')
+          // if(mode === 'manual')
           {
           sendCommand("right");
           setTimeout(() => sendCommand("stop"), 10);
